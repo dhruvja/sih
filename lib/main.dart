@@ -10,6 +10,7 @@ import 'home_page/home_page_widget.dart';
 import 'forum/forum_widget.dart';
 import 'forumpage_update/forumpage_update_widget.dart';
 import 'photoupdate/photoupdate_widget.dart';
+import 'complains/complains_widget.dart';
 
 void main() async {
   runApp(MyApp());
@@ -78,6 +79,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'forum': ForumWidget(),
       'ForumpageUpdate': ForumpageUpdateWidget(),
       'photoupdate': PhotoupdateWidget(),
+      'Complains': ComplainsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -103,6 +105,14 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.forum_sharp,
+              size: 24,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.transit_enterexit_rounded,
               size: 24,
             ),
             label: 'Home',

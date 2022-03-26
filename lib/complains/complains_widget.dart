@@ -1,125 +1,66 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart' as Path;
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../api_endpoint.dart';
 
-class PhotoupdateWidget extends StatefulWidget {
-  const PhotoupdateWidget({Key key}) : super(key: key);
+class ComplainsWidget extends StatefulWidget {
+  const ComplainsWidget({Key key}) : super(key: key);
 
   @override
-  _PhotoupdateWidgetState createState() => _PhotoupdateWidgetState();
+  _ComplainsWidgetState createState() => _ComplainsWidgetState();
 }
 
-class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
+class _ComplainsWidgetState extends State<ComplainsWidget> {
   TextEditingController emailAddressController;
   TextEditingController textController1;
+  bool checkboxListTileValue;
   TextEditingController myBioController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  ImagePicker picker = ImagePicker();
-  File _image;
-
-  String endpoint = Endpoint();
 
   @override
   void initState() {
     super.initState();
     emailAddressController = TextEditingController(text: 'Subject');
     textController1 = TextEditingController(text: 'Name');
-    myBioController = TextEditingController(text: 'upload');
-  }
-
-  void upload() async {
-    try {
-      var image_source = await picker.pickImage(source: ImageSource.camera);
-      setState(() {
-        _image = File(image_source.path);
-      });
-
-      print(image_source.path);
-      uploadToServer(File(image_source.path));
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  void uploadToServer(File imageFile) async {
-    print("hi");
-    var stream = new http.ByteStream(imageFile.openRead());
-    stream.cast();
-    // get file length
-    var length = await imageFile.length();
-
-    // string to uri
-    var uri = Uri.parse(
-        "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyCVOedDvT-8s3kkaXNzBt_9_r2e4X5KvQM");
-
-    // create multipart request
-    var request = new http.MultipartRequest("POST", uri);
-
-    // multipart that takes file
-    var multipartFile = new http.MultipartFile('photo', stream, length,
-        filename: Path.basename(imageFile.path));
-
-    request.files.add(multipartFile);
-    request.send().then((result) async {
-      http.Response.fromStream(result).then((response) async {
-        if (response.statusCode == 200) {
-          print("Uploaded! ");
-          print('response.body ' + response.body);
-          var data = json.decode(response.body);
-          print(data);
-        }
-      });
-    });
+    myBioController = TextEditingController(text: 'Content');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.black,
-            size: 24,
-          ),
-        ),
-        title: Text(
-          'Post to Forum',
-          style: FlutterFlowTheme.of(context).bodyText1.override(
-                fontFamily: 'Lexend Deca',
-                color: Color(0xFF14181B),
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
-        ),
-        actions: [],
-        centerTitle: true,
-        elevation: 0,
-      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    'Complains',
+                    style: FlutterFlowTheme.of(context).bodyText1,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.4,
+              decoration: BoxDecoration(
+                color: Color(0xFFEEEEEE),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: Image.asset(
+                    'assets/images/complains.jpg',
+                  ).image,
+                ),
+              ),
+            ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
               child: TextFormField(
@@ -213,16 +154,39 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
               ),
             ),
             Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Theme(
+                      data: ThemeData(
+                        unselectedWidgetColor: Color(0xFF95A1AC),
+                      ),
+                      child: CheckboxListTile(
+                        value: checkboxListTileValue ??= true,
+                        onChanged: (newValue) =>
+                            setState(() => checkboxListTileValue = newValue),
+                        title: Text(
+                          'Keep me anonymous',
+                          style: FlutterFlowTheme.of(context).title3.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 10,
+                              ),
+                        ),
+                        tileColor: Color(0xFFF5F5F5),
+                        activeColor: FlutterFlowTheme.of(context).primaryColor,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
               child: TextFormField(
-                onFieldSubmitted: (_) async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NavBarPage(initialPage: 'HomePage'),
-                    ),
-                  );
-                },
                 controller: myBioController,
                 obscureText: false,
                 decoration: InputDecoration(
@@ -268,39 +232,6 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
                 maxLines: 6,
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 16),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FFButtonWidget(
-                    onPressed: () async {
-                      upload();
-                    },
-                    text: 'Change Photo',
-                    options: FFButtonOptions(
-                      width: 130,
-                      height: 40,
-                      color: Colors.white,
-                      textStyle:
-                          FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF050E6A),
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      elevation: 2,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: 8,
-                    ),
-                  ),
-                ],
-              ),
-            ),
             Align(
               alignment: AlignmentDirectional(0, 0.05),
               child: Padding(
@@ -309,7 +240,7 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
                   onPressed: () async {
                     Navigator.pop(context);
                   },
-                  text: 'Save Changes',
+                  text: 'Uopload',
                   options: FFButtonOptions(
                     width: 340,
                     height: 60,
