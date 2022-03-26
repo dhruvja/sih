@@ -60,7 +60,7 @@ class _ScholarshipWidgetState extends State<ScholarshipWidget> {
                                     ),
                               ),
                               Text(
-                                '\$425.24',
+                                'Newss',
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
