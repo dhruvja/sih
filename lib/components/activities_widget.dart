@@ -19,7 +19,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
         width: MediaQuery.of(context).size.width * 0.95,
         height: 70,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).background,
+          color: FlutterFlowTheme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Padding(
