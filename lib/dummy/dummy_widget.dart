@@ -1,11 +1,14 @@
+import '../botpage/botpage_widget.dart';
 import '../college_info/college_info_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../login/login_widget.dart';
 import '../main.dart';
 import '../news_updates/news_updates_widget.dart';
 import '../onboard/onboard_widget.dart';
-import '../scholarship/scholarship_widget.dart';
+import '../scholarship1/scholarship1_widget.dart';
+import '../signup/signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -132,7 +135,7 @@ class _DummyWidgetState extends State<DummyWidget> {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NewsUpdatesWidget(),
+                      builder: (context) => Scholarship1Widget(),
                     ),
                   );
                 },
@@ -182,11 +185,86 @@ class _DummyWidgetState extends State<DummyWidget> {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ScholarshipWidget(),
+                      builder: (context) => NewsUpdatesWidget(),
                     ),
                   );
                 },
                 text: 'news',
+                options: FFButtonOptions(
+                  width: 130,
+                  height: 40,
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                      ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: 12,
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BotpageWidget(),
+                    ),
+                  );
+                },
+                text: 'whatsaapp',
+                options: FFButtonOptions(
+                  width: 130,
+                  height: 40,
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                      ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: 12,
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginWidget(),
+                    ),
+                  );
+                },
+                text: 'login',
+                options: FFButtonOptions(
+                  width: 130,
+                  height: 40,
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                      ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: 12,
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignupWidget(),
+                    ),
+                  );
+                },
+                text: 'signup',
                 options: FFButtonOptions(
                   width: 130,
                   height: 40,
