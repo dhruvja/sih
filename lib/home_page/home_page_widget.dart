@@ -24,6 +24,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: Color(0xFF6A9106),
+        elevation: 8,
+        child: Icon(
+          Icons.mark_chat_unread_sharp,
+          color: Color(0xFFDFEFFF),
+          size: 24,
+        ),
+      ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
