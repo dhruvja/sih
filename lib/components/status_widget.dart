@@ -18,15 +18,16 @@ class _StatusWidgetState extends State<StatusWidget> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
               child: Container(
-                width: 350,
+                width: MediaQuery.of(context).size.width * 0.95,
                 height: 150,
                 decoration: BoxDecoration(
                   color: Color(0xFF050E6A),

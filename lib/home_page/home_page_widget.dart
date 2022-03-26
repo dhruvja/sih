@@ -144,6 +144,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.92,
+                          height: 120,
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -158,7 +159,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               begin: AlignmentDirectional(0.94, -1),
                               end: AlignmentDirectional(-0.94, 1),
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(0),
                           ),
                           child: InkWell(
                             onTap: () async {
@@ -170,56 +171,57 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               );
                             },
-                            child: SingleChildScrollView(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 24, 20, 0),
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          AutoSizeText(
-                                            'College Name',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Colors.white,
-                                                  fontSize: 24,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 8, 20, 0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20, 24, 20, 0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Text(
-                                          '3rd year',
+                                        AutoSizeText(
+                                          'College Name',
                                           style: FlutterFlowTheme.of(context)
-                                              .title1
+                                              .bodyText1
                                               .override(
                                                 fontFamily: 'Lexend Deca',
-                                                color: Colors.black,
-                                                fontSize: 30,
+                                                color: Colors.white,
+                                                fontSize: 24,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
                                       ],
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20, 0, 20, 0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '3rd year',
+                                        style: FlutterFlowTheme.of(context)
+                                            .title1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.black,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

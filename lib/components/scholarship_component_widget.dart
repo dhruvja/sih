@@ -28,122 +28,132 @@ class _ScholarshipComponentWidgetState
           width: 1,
         ),
       ),
-      child: InkWell(
-        onTap: () async {
-          await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => NavBarPage(initialPage: 'HomePage'),
-            ),
-          );
-        },
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/images/debit.svg',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NavBarPage(initialPage: 'HomePage'),
+                ),
+              );
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                  child: Column(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Scholarship Name',
-                        style: FlutterFlowTheme.of(context).subtitle1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF15212B),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: AlignmentDirectional(0.7, 0),
-                          child: Text(
-                            'Date',
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                              color: Color(0xFF57636C),
-                              fontWeight: FontWeight.w500,
-                              fontSize: 10,
-                            ),
-                          ),
+                      Container(
+                        width: 60,
+                        height: 60,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/images/debit.svg',
                         ),
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 10, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 4, 0),
-                            child: Text(
-                              'Department',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText2
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'Scholarship Name',
+                            style:
+                                FlutterFlowTheme.of(context).subtitle1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF15212B),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.7, 0),
+                              child: Text(
+                                'Date',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                  color: Color(0xFF57636C),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 10,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: 'Button',
-                          options: FFButtonOptions(
-                            width: 80,
-                            height: 25,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 10, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 4, 4, 0),
+                                child: Text(
+                                  'Department',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText2
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xFF8B97A2),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            FFButtonWidget(
+                              onPressed: () {
+                                print('Button pressed ...');
+                              },
+                              text: 'Button',
+                              options: FFButtonOptions(
+                                width: 80,
+                                height: 25,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .subtitle2
+                                    .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                     ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                borderRadius: 1,
+                              ),
                             ),
-                            borderRadius: 1,
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

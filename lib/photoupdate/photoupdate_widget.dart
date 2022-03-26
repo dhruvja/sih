@@ -23,7 +23,7 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
     super.initState();
     emailAddressController = TextEditingController(text: 'Subject');
     textController1 = TextEditingController(text: 'Name');
-    myBioController = TextEditingController(text: 'Content');
+    myBioController = TextEditingController(text: 'upload');
   }
 
   @override
