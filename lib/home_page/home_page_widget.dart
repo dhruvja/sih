@@ -1,4 +1,5 @@
 import '../components/activities_widget.dart';
+import '../dummy/dummy_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -288,7 +289,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          HomePageWidget(),
+                                                          DummyWidget(),
                                                     ),
                                                   );
                                                 },
@@ -314,7 +315,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomePageWidget(),
+                                                        DummyWidget(),
                                                   ),
                                                 );
                                               },
