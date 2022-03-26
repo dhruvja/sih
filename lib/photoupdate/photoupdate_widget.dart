@@ -4,6 +4,14 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as Path;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../api_endpoint.dart';
 
 class PhotoupdateWidget extends StatefulWidget {
   const PhotoupdateWidget({Key key}) : super(key: key);
@@ -18,12 +26,62 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
   TextEditingController myBioController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  ImagePicker picker = ImagePicker();
+  File _image;
+
+  String endpoint = Endpoint();
+
   @override
   void initState() {
     super.initState();
     emailAddressController = TextEditingController(text: 'Subject');
     textController1 = TextEditingController(text: 'Name');
     myBioController = TextEditingController(text: 'Content');
+  }
+
+  void upload() async {
+    try {
+      var image_source = await picker.pickImage(source: ImageSource.camera);
+      setState(() {
+        _image = File(image_source.path);
+      });
+
+      print(image_source.path);
+      uploadToServer(File(image_source.path));
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void uploadToServer(File imageFile) async {
+    print("hi");
+    var stream = new http.ByteStream(imageFile.openRead());
+    stream.cast();
+    // get file length
+    var length = await imageFile.length();
+
+    // string to uri
+    var uri = Uri.parse(
+        "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyCVOedDvT-8s3kkaXNzBt_9_r2e4X5KvQM");
+
+    // create multipart request
+    var request = new http.MultipartRequest("POST", uri);
+
+    // multipart that takes file
+    var multipartFile = new http.MultipartFile('photo', stream, length,
+        filename: Path.basename(imageFile.path));
+
+    request.files.add(multipartFile);
+    request.send().then((result) async {
+      http.Response.fromStream(result).then((response) async {
+        if (response.statusCode == 200) {
+          print("Uploaded! ");
+          print('response.body ' + response.body);
+          var data = json.decode(response.body);
+          print(data);
+        }
+      });
+    });
   }
 
   @override
@@ -218,13 +276,7 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'HomePage'),
-                        ),
-                      );
+                      upload();
                     },
                     text: 'Change Photo',
                     options: FFButtonOptions(

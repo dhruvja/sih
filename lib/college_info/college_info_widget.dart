@@ -21,6 +21,18 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFFAF9F9),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: Color(0xFF6A9106),
+        elevation: 8,
+        child: Icon(
+          Icons.mark_chat_unread_sharp,
+          color: Color(0xFFDFEFFF),
+          size: 24,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,

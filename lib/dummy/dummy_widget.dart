@@ -12,6 +12,8 @@ import '../signup/signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../tweets/tweets_widget.dart';
+
 class DummyWidget extends StatefulWidget {
   const DummyWidget({Key key}) : super(key: key);
 
@@ -185,7 +187,7 @@ class _DummyWidgetState extends State<DummyWidget> {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NewsUpdatesWidget(),
+                      builder: (context) => TweetsWidget(),
                     ),
                   );
                 },
