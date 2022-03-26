@@ -62,8 +62,14 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Image.network(
+              'https://picsum.photos/seed/426/600',
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.3,
+              fit: BoxFit.cover,
+            ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 16),
               child: TextFormField(
                 controller: textController1,
                 obscureText: false,
