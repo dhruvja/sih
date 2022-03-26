@@ -54,7 +54,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10, 10, 10, 10),
                                 child: Text(
-                                  'Cycle Tracking',
+                                  'Scholarship Track',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -70,7 +70,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Menstrual Flow',
+                                'Sholarship',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -99,7 +99,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                             onPressed: () {
                               print('Button pressed ...');
                             },
-                            text: 'Update',
+                            text: 'Check',
                             options: FFButtonOptions(
                               width: 130,
                               height: 35,
