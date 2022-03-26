@@ -12,18 +12,16 @@ class ComplainsWidget extends StatefulWidget {
 }
 
 class _ComplainsWidgetState extends State<ComplainsWidget> {
-  TextEditingController emailAddressController;
+  TextEditingController myBioController;
   TextEditingController textController1;
   bool checkboxListTileValue;
-  TextEditingController myBioController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController(text: 'Subject');
-    textController1 = TextEditingController(text: 'Name');
     myBioController = TextEditingController(text: 'Content');
+    textController1 = TextEditingController(text: 'Name');
   }
 
   @override
@@ -111,7 +109,7 @@ class _ComplainsWidgetState extends State<ComplainsWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
                 child: TextFormField(
-                  controller: emailAddressController,
+                  controller: textController1,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Subject',
