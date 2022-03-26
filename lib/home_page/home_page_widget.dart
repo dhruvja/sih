@@ -156,25 +156,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20, 24, 20, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      AutoSizeText(
-                                        'College Name',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Colors.white,
-                                              fontSize: 24,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ],
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        AutoSizeText(
+                                          'College Name',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Colors.white,
+                                                fontSize: 24,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Padding(
