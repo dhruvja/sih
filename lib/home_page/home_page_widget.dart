@@ -2,8 +2,10 @@ import '../components/activities_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../main.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -149,7 +151,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomePageWidget(),
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'HomePage'),
                               ),
                             );
                           },
@@ -244,7 +247,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomePageWidget(),
+                                                        NavBarPage(
+                                                            initialPage:
+                                                                'HomePage'),
                                                   ),
                                                 );
                                               },
@@ -270,7 +275,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'HomePage'),
                                                 ),
                                               );
                                             },
@@ -365,7 +372,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'HomePage'),
                                                 ),
                                               );
                                             },
@@ -394,7 +403,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Icon(
-                                                      Icons.swap_horiz_rounded,
+                                                      Icons.school,
                                                       color: Color(0xFF1E2429),
                                                       size: 40,
                                                     ),
@@ -404,7 +413,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               .fromSTEB(
                                                                   0, 8, 0, 0),
                                                       child: Text(
-                                                        'Applications',
+                                                        'Institutions',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -437,7 +446,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'HomePage'),
                                                 ),
                                               );
                                             },
@@ -466,8 +477,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Icon(
-                                                      Icons
-                                                          .stacked_line_chart_rounded,
+                                                      Icons.school_sharp,
                                                       color: Color(0xFF1E2429),
                                                       size: 40,
                                                     ),
@@ -477,7 +487,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               .fromSTEB(
                                                                   0, 8, 0, 0),
                                                       child: Text(
-                                                        'Activity',
+                                                        'Scholarship',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -521,7 +531,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'HomePage'),
                                                 ),
                                               );
                                             },
@@ -549,32 +561,36 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    Icon(
-                                                      Icons.swap_horiz_rounded,
+                                                    FaIcon(
+                                                      FontAwesomeIcons
+                                                          .newspaper,
                                                       color: Color(0xFF1E2429),
                                                       size: 40,
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 8, 0, 0),
-                                                      child: Text(
-                                                        'Applications',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Lexend Deca',
-                                                                  color: Color(
-                                                                      0xFF090F13),
-                                                                  fontSize: 14,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 8, 0, 0),
+                                                        child: Text(
+                                                          'News and updates',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                color: Color(
+                                                                    0xFF090F13),
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ],
@@ -593,7 +609,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'HomePage'),
                                                 ),
                                               );
                                             },
@@ -622,8 +640,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Icon(
-                                                      Icons
-                                                          .stacked_line_chart_rounded,
+                                                      Icons.forum,
                                                       color: Color(0xFF1E2429),
                                                       size: 40,
                                                     ),
@@ -633,7 +650,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               .fromSTEB(
                                                                   0, 8, 0, 0),
                                                       child: Text(
-                                                        'Activity',
+                                                        'Forum',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -699,7 +716,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HomePageWidget(),
+                                    builder: (context) =>
+                                        NavBarPage(initialPage: 'HomePage'),
                                   ),
                                 );
                               },

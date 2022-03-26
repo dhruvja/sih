@@ -2,8 +2,7 @@ import '../college_info/college_info_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../forum/forum_widget.dart';
-import '../home_page/home_page_widget.dart';
+import '../main.dart';
 import '../news_updates/news_updates_widget.dart';
 import '../onboard/onboard_widget.dart';
 import '../scholarship/scholarship_widget.dart';
@@ -54,7 +53,8 @@ class _DummyWidgetState extends State<DummyWidget> {
                       await Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePageWidget(),
+                          builder: (context) =>
+                              NavBarPage(initialPage: 'HomePage'),
                         ),
                       );
                     },
@@ -157,7 +157,7 @@ class _DummyWidgetState extends State<DummyWidget> {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ForumWidget(),
+                      builder: (context) => NavBarPage(initialPage: 'forum'),
                     ),
                   );
                 },
