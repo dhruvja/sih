@@ -12,18 +12,16 @@ class ComplainsWidget extends StatefulWidget {
 }
 
 class _ComplainsWidgetState extends State<ComplainsWidget> {
-  TextEditingController emailAddressController;
+  TextEditingController myBioController;
   TextEditingController textController1;
   bool checkboxListTileValue;
-  TextEditingController myBioController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController(text: 'Subject');
-    textController1 = TextEditingController(text: 'Name');
     myBioController = TextEditingController(text: 'Content');
+    textController1 = TextEditingController(text: 'Name');
   }
 
   @override
@@ -62,7 +60,7 @@ class _ComplainsWidgetState extends State<ComplainsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
+              padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 16),
               child: TextFormField(
                 controller: textController1,
                 obscureText: false,
@@ -105,83 +103,6 @@ class _ComplainsWidgetState extends State<ComplainsWidget> {
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
                     ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
-              child: TextFormField(
-                controller: emailAddressController,
-                obscureText: false,
-                decoration: InputDecoration(
-                  labelText: 'Subject',
-                  labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF95A1AC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-                  hintText: 'Your email..',
-                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF95A1AC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFDBE2E7),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFDBE2E7),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
-                ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Color(0xFF14181B),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Theme(
-                      data: ThemeData(
-                        unselectedWidgetColor: Color(0xFF95A1AC),
-                      ),
-                      child: CheckboxListTile(
-                        value: checkboxListTileValue ??= true,
-                        onChanged: (newValue) =>
-                            setState(() => checkboxListTileValue = newValue),
-                        title: Text(
-                          'Keep me anonymous',
-                          style: FlutterFlowTheme.of(context).title3.override(
-                                fontFamily: 'Poppins',
-                                fontSize: 10,
-                              ),
-                        ),
-                        tileColor: Color(0xFFF5F5F5),
-                        activeColor: FlutterFlowTheme.of(context).primaryColor,
-                        dense: false,
-                        controlAffinity: ListTileControlAffinity.trailing,
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ),
             Padding(
@@ -230,6 +151,37 @@ class _ComplainsWidgetState extends State<ComplainsWidget> {
                     ),
                 textAlign: TextAlign.start,
                 maxLines: 6,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Theme(
+                      data: ThemeData(
+                        unselectedWidgetColor: Color(0xFF95A1AC),
+                      ),
+                      child: CheckboxListTile(
+                        value: checkboxListTileValue ??= true,
+                        onChanged: (newValue) =>
+                            setState(() => checkboxListTileValue = newValue),
+                        title: Text(
+                          'Keep me anonymous',
+                          style: FlutterFlowTheme.of(context).title3.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 10,
+                              ),
+                        ),
+                        tileColor: Color(0xFFF5F5F5),
+                        activeColor: FlutterFlowTheme.of(context).primaryColor,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Align(
