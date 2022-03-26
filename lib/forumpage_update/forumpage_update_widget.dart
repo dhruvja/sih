@@ -1,6 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,9 +13,8 @@ class ForumpageUpdateWidget extends StatefulWidget {
 }
 
 class _ForumpageUpdateWidgetState extends State<ForumpageUpdateWidget> {
-  String uploadedFileUrl = '';
-  TextEditingController textController1;
   TextEditingController emailAddressController;
+  TextEditingController textController1;
   TextEditingController myBioController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -97,7 +97,15 @@ class _ForumpageUpdateWidgetState extends State<ForumpageUpdateWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FFButtonWidget(
-                    onPressed: () async {},
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              NavBarPage(initialPage: 'HomePage'),
+                        ),
+                      );
+                    },
                     text: 'Change Photo',
                     options: FFButtonOptions(
                       width: 130,

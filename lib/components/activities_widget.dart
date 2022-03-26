@@ -19,7 +19,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
         width: MediaQuery.of(context).size.width * 0.95,
         height: 70,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).background,
+          color: Color(0xFFFAF9F9),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Padding(
@@ -31,7 +31,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                 child: Card(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
-                  color: Color(0x6639D2C0),
+                  color: Color(0xFF158DF1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40),
                   ),
