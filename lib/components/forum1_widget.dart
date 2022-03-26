@@ -4,14 +4,14 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ForumComponentWidget extends StatefulWidget {
-  const ForumComponentWidget({Key key}) : super(key: key);
+class Forum1Widget extends StatefulWidget {
+  const Forum1Widget({Key key}) : super(key: key);
 
   @override
-  _ForumComponentWidgetState createState() => _ForumComponentWidgetState();
+  _Forum1WidgetState createState() => _Forum1WidgetState();
 }
 
-class _ForumComponentWidgetState extends State<ForumComponentWidget> {
+class _Forum1WidgetState extends State<Forum1Widget> {
   TextEditingController textController;
 
   @override

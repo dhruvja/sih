@@ -1,3 +1,5 @@
+import '../components/forum1_widget.dart';
+import '../components/info_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -17,28 +19,45 @@ class _ForumWidgetState extends State<ForumWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Page Title',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 22,
-              ),
+      backgroundColor: Color(0xC4050E6A),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: Color(0xFFFEFEFE),
+        elevation: 8,
+        child: Icon(
+          Icons.add,
+          color: Colors.black,
+          size: 30,
         ),
-        actions: [],
-        centerTitle: false,
-        elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: InfoWidget(),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Forum1Widget(),
+              ],
+            ),
           ),
         ),
       ),

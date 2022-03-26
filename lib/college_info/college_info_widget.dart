@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CollegeInfoWidget extends StatefulWidget {
@@ -19,7 +20,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF090F13),
+      backgroundColor: Color(0xFFFAF9F9),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -80,7 +81,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                     'The Phantom Menance',
                     style: FlutterFlowTheme.of(context).title2.override(
                           fontFamily: 'Lexend Deca',
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
@@ -99,7 +100,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '1999',
+                          'Established year',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
@@ -130,7 +131,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(6, 2, 6, 2),
                                 child: Text(
-                                  '137m',
+                                  'Location',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -150,7 +151,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(6, 2, 6, 2),
                                 child: Text(
-                                  'PG',
+                                  'UG/PG',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -227,20 +228,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                           child: Text(
-                            '9.2',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
-                          child: Text(
-                            'IMDb Rating',
+                            'NIRF Ranking',
                             style:
                                 FlutterFlowTheme.of(context).bodyText2.override(
                                       fontFamily: 'Lexend Deca',
@@ -250,11 +238,13 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                                     ),
                           ),
                         ),
-                        Image.asset(
-                          'assets/images/171_Imdb_logo_logos-512.png',
-                          width: 24,
-                          height: 24,
-                          fit: BoxFit.cover,
+                        Text(
+                          '101',
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 30,
+                                  ),
                         ),
                       ],
                     ),
@@ -271,20 +261,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                           child: Text(
-                            '52%',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
-                          child: Text(
-                            'Rotten Tomatoes',
+                            'Affiliation',
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).bodyText2.override(
@@ -295,11 +272,13 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                                     ),
                           ),
                         ),
-                        Image.asset(
-                          'assets/images/-ratingRottenTom@2x.png',
-                          width: 24,
-                          height: 24,
-                          fit: BoxFit.cover,
+                        Text(
+                          'AICTE',
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 30,
+                                  ),
                         ),
                       ],
                     ),
@@ -316,20 +295,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                           child: Text(
-                            '51',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
-                          child: Text(
-                            'Metacritic',
+                            'Total Branches',
                             style:
                                 FlutterFlowTheme.of(context).bodyText2.override(
                                       fontFamily: 'Lexend Deca',
@@ -339,11 +305,14 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                                     ),
                           ),
                         ),
-                        Image.asset(
-                          'assets/images/-ratingMediaCritic@2x.png',
-                          width: 24,
-                          height: 24,
-                          fit: BoxFit.cover,
+                        Text(
+                          '20',
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF6A9106),
+                                    fontSize: 30,
+                                  ),
                         ),
                       ],
                     ),
@@ -353,43 +322,7 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
             ),
             Row(
               mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
-                          child: Text(
-                            'Genre',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText2.override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0xFF8B97A2),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                          ),
-                        ),
-                        Text(
-                          'Action, Adventure, Fantasy, Sci Fi',
-                          style:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+              children: [],
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
@@ -402,10 +335,9 @@ class _CollegeInfoWidgetState extends State<CollegeInfoWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Add To Favorites',
-                    icon: Icon(
-                      Icons.favorite_border,
-                      size: 15,
+                    text: 'Website',
+                    icon: FaIcon(
+                      FontAwesomeIcons.tencentWeibo,
                     ),
                     options: FFButtonOptions(
                       width: 300,
