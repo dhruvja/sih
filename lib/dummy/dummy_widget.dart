@@ -132,7 +132,7 @@ class _DummyWidgetState extends State<DummyWidget> {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ScholarshipWidget(),
+                      builder: (context) => NewsUpdatesWidget(),
                     ),
                   );
                 },
@@ -182,7 +182,7 @@ class _DummyWidgetState extends State<DummyWidget> {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NewsUpdatesWidget(),
+                      builder: (context) => ScholarshipWidget(),
                     ),
                   );
                 },
