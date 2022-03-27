@@ -4,23 +4,12 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Forum1Widget extends StatefulWidget {
-  const Forum1Widget({Key key}) : super(key: key);
+class Forum1Widget extends StatelessWidget {
+  var values;
+  Forum1Widget(this.values);
 
-  @override
-  _Forum1WidgetState createState() => _Forum1WidgetState();
-}
-
-class _Forum1WidgetState extends State<Forum1Widget> {
   TextEditingController textController;
 
-  @override
-  void initState() {
-    super.initState();
-    textController = TextEditingController();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 2),
@@ -77,7 +66,7 @@ class _Forum1WidgetState extends State<Forum1Widget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Name',
+                                  values['student_id'].toString(),
                                   style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                               ],
@@ -87,7 +76,7 @@ class _Forum1WidgetState extends State<Forum1Widget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Posted date',
+                                  values['created_date'].toString(),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -109,10 +98,11 @@ class _Forum1WidgetState extends State<Forum1Widget> {
                         children: [
                           Expanded(
                             child: TextFormField(
+                              readOnly: true,
                               controller: textController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Post',
+                                hintText: values['description'],
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -152,7 +142,7 @@ class _Forum1WidgetState extends State<Forum1Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '#tags',
+                            values['tags'],
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
@@ -203,7 +193,7 @@ class _Forum1WidgetState extends State<Forum1Widget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 5, 0),
                                     child: Text(
-                                      'Read time',
+                                      'Read time 5m',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -218,7 +208,7 @@ class _Forum1WidgetState extends State<Forum1Widget> {
                                     },
                                     text: 'view',
                                     options: FFButtonOptions(
-                                      width: 60,
+                                      width: 100,
                                       height: 25,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,

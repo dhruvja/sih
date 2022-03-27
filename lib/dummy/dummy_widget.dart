@@ -1,3 +1,4 @@
+import '../tweets/tweets_widget.dart';
 import '../botpage/botpage_widget.dart';
 import '../college_info/college_info_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -12,7 +13,6 @@ import '../signup/signup_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../tweets/tweets_widget.dart';
 
 class DummyWidget extends StatefulWidget {
   const DummyWidget({Key key}) : super(key: key);

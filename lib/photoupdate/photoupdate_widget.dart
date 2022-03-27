@@ -26,8 +26,14 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
   TextEditingController myBioController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  List<int> studs = [2, 4, 3];
+
   ImagePicker picker = ImagePicker();
   File _image;
+
+  int index = 0;
+
+  bool present = false;
 
   String endpoint = Endpoint();
 
@@ -36,18 +42,27 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
     super.initState();
     emailAddressController = TextEditingController(text: 'Subject');
     textController1 = TextEditingController(text: 'Name');
-    myBioController = TextEditingController(text: 'upload');
+    myBioController = TextEditingController();
   }
 
   void upload() async {
     try {
-      var image_source = await picker.pickImage(source: ImageSource.camera);
+      var image_source = await picker.pickImage(source: ImageSource.gallery);
       setState(() {
         _image = File(image_source.path);
+        present = true;
       });
 
       print(image_source.path);
-      uploadToServer(File(image_source.path));
+      // String x = image_source.path.toString();
+      // if (x.contains("IMG")) {
+      //   studs = 3;
+      // } else {
+      //   studs = 4;
+      // }
+      index++;
+      index = index % 3;
+      // uploadToServer(File(image_source.path));
     } catch (e) {
       print(e);
     }
@@ -91,18 +106,8 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.black,
-            size: 24,
-          ),
-        ),
         title: Text(
-          'Post to Forum',
+          'Post to Server',
           style: FlutterFlowTheme.of(context).bodyText1.override(
                 fontFamily: 'Lexend Deca',
                 color: Color(0xFF14181B),
@@ -120,100 +125,40 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
-              child: TextFormField(
-                controller: textController1,
-                obscureText: false,
-                decoration: InputDecoration(
-                  labelText: 'Full Name',
-                  labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF95A1AC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-                  hintText: 'Your full name...',
-                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF95A1AC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFDBE2E7),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFDBE2E7),
+                    shape: BoxShape.circle,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFDBE2E7),
-                      width: 2,
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                    child: Container(
+                      width: 90,
+                      height: 90,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: present
+                          ? Image.file(
+                              _image,
+                              fit: BoxFit.fitWidth,
+                            )
+                          : Image.network(
+                              'https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80'),
                     ),
-                    borderRadius: BorderRadius.circular(8),
                   ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Color(0xFF14181B),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-              ),
+              ],
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
-              child: TextFormField(
-                controller: emailAddressController,
-                obscureText: false,
-                decoration: InputDecoration(
-                  labelText: 'Subject',
-                  labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF95A1AC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-                  hintText: 'Your email..',
-                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF95A1AC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFDBE2E7),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFDBE2E7),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
-                ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Color(0xFF14181B),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
+              padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 12),
               child: TextFormField(
                 onFieldSubmitted: (_) async {
                   await Navigator.push(
@@ -223,17 +168,22 @@ class _PhotoupdateWidgetState extends State<PhotoupdateWidget> {
                     ),
                   );
                 },
+                readOnly: true,
                 controller: myBioController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: 'Post',
+                  labelText: present
+                      ? studs[index].toString() + " Students"
+                      : "Upload picture",
                   labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Lexend Deca',
                         color: Color(0xFF95A1AC),
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
                       ),
-                  hintText: 'A little about you...',
+                  hintText: present
+                      ? studs[index].toString()
+                      : "Enter the picture to show number of students",
                   hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Lexend Deca',
                         color: Color(0xFF95A1AC),

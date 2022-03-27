@@ -1,9 +1,16 @@
+import 'package:sih2022/forum/forum_widget.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import '../api_endpoint.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ForumpageUpdateWidget extends StatefulWidget {
   const ForumpageUpdateWidget({Key key}) : super(key: key);
@@ -18,12 +25,42 @@ class _ForumpageUpdateWidgetState extends State<ForumpageUpdateWidget> {
   TextEditingController myBioController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  var data;
+  String endpoint = Endpoint();
+
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController(text: 'Subject');
-    textController1 = TextEditingController(text: 'Name');
-    myBioController = TextEditingController(text: 'Content');
+    emailAddressController = TextEditingController();
+    textController1 = TextEditingController();
+    myBioController = TextEditingController();
+  }
+
+  void upload() async {
+    var url = endpoint + "/api/postcommunity";
+    final response = await http.post(Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'accept': 'application/json'
+        },
+        body: jsonEncode(<String, String>{
+          "student_id": "3",
+          "title": textController1.text,
+          "tags": emailAddressController.text,
+          "description": myBioController.text
+        }));
+    if (response.statusCode == 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      print(response.body);
+      data = json.decode(response.body);
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ForumWidget(),
+        ),
+      );
+    }
   }
 
   @override
@@ -275,7 +312,7 @@ class _ForumpageUpdateWidgetState extends State<ForumpageUpdateWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    Navigator.pop(context);
+                    upload();
                   },
                   text: 'Save Changes',
                   options: FFButtonOptions(

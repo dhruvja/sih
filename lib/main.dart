@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'home_page/home_page_widget.dart';
 import 'forum/forum_widget.dart';
 import 'forumpage_update/forumpage_update_widget.dart';
+import 'onboard/onboard_widget.dart';
 import 'photoupdate/photoupdate_widget.dart';
 import 'complains/complains_widget.dart';
 
@@ -48,7 +49,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
-      home: NavBarPage(),
+      home: OnboardWidget(),
     );
   }
 }
@@ -77,7 +78,6 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': HomePageWidget(),
       'forum': ForumWidget(),
-      'ForumpageUpdate': ForumpageUpdateWidget(),
       'photoupdate': PhotoupdateWidget(),
       'Complains': ComplainsWidget(),
     };
@@ -112,15 +112,7 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.transit_enterexit_rounded,
-              size: 24,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.transit_enterexit_rounded,
+              Icons.upload_sharp,
               size: 24,
             ),
             label: 'Home',

@@ -355,8 +355,14 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 16, 0, 0),
                                         child: FFButtonWidget(
-                                          onPressed: () {
-                                            print('Button pressed ...');
+                                          onPressed: () async{
+                                            await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        NavBarPage(initialPage: 'HomePage'),
+                  ),
+                );
                                           },
                                           text: 'Explore Now',
                                           options: FFButtonOptions(

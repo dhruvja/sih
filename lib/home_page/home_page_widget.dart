@@ -1,3 +1,6 @@
+import 'package:sih2022/tweets/tweets_widget.dart';
+
+import '../botpage/botpage_widget.dart';
 import '../components/activities_widget.dart';
 import '../dummy/dummy_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -10,6 +13,10 @@ import 'dart:async';
 import 'dart:convert';
 import '../api_endpoint.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
+import '../forum/forum_widget.dart';
+import '../main.dart';
+import '../scholarship1/scholarship1_widget.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key key}) : super(key: key);
@@ -212,7 +219,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Text(
-                                          values['college_id']['name'],
+                                          "Siddaganga Institute",
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -410,7 +417,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomePageWidget(),
+                                                        TweetsWidget(),
                                                   ),
                                                 );
                                               },
@@ -452,7 +459,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .fromSTEB(
                                                                     0, 8, 0, 0),
                                                         child: Text(
-                                                          'Applications',
+                                                          'Resources',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -484,7 +491,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomePageWidget(),
+                                                        BotpageWidget(),
                                                   ),
                                                 );
                                               },
@@ -526,7 +533,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .fromSTEB(
                                                                     0, 8, 0, 0),
                                                         child: Text(
-                                                          'Activity',
+                                                          'AI Assistant',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -558,7 +565,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomePageWidget(),
+                                                        Scholarship1Widget(),
                                                   ),
                                                 );
                                               },
@@ -600,7 +607,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .fromSTEB(
                                                                     0, 8, 0, 0),
                                                         child: Text(
-                                                          'Applications',
+                                                          'Scholarships',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -643,7 +650,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomePageWidget(),
+                                                        NavBarPage(initialPage: 'forum'),
                                                   ),
                                                 );
                                               },
@@ -685,7 +692,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .fromSTEB(
                                                                     0, 8, 0, 0),
                                                         child: Text(
-                                                          'Applications',
+                                                          'Community',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -717,7 +724,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomePageWidget(),
+                                                        NavBarPage(initialPage: 'Complains'),
                                                   ),
                                                 );
                                               },
@@ -759,7 +766,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .fromSTEB(
                                                                     0, 8, 0, 0),
                                                         child: Text(
-                                                          'Activity',
+                                                          'Complaints',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -784,50 +791,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ],
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 12, 20, 12),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'Activities',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF090F13),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ActivitiesWidget(),
                                   ],
                                 ),
-                              ),
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 24,
-                                borderWidth: 1,
-                                buttonSize: 60,
-                                fillColor:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                icon: Icon(
-                                  Icons.arrow_circle_down_rounded,
-                                  color: Colors.black,
-                                  size: 30,
-                                ),
-                                onPressed: () async {
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => HomePageWidget(),
-                                    ),
-                                  );
-                                },
                               ),
                             ],
                           ),
