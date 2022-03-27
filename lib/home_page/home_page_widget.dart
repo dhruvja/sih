@@ -1,5 +1,5 @@
-import '../components/activities_widget.dart';
 import '../components/status_widget.dart';
+import '../components/ststus2_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -106,7 +106,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             4, 0, 0, 0),
                                         child: Text(
-                                          'Andrew',
+                                          'Dhruv',
                                           style: FlutterFlowTheme.of(context)
                                               .title3
                                               .override(
@@ -185,13 +185,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         AutoSizeText(
-                                          'College Name',
+                                          'Siddaganga Institute\nTechnology',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                                 fontFamily: 'Lexend Deca',
                                                 color: Colors.white,
-                                                fontSize: 24,
+                                                fontSize: 20,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -272,7 +272,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF090F13),
+                                                  color: Color(0xFFDFEFFF),
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.normal,
                                                 ),
@@ -619,7 +619,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF090F13),
+                                                  color: Color(0xFFDFEFFF),
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.normal,
                                                 ),
@@ -627,7 +627,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ],
                                       ),
                                     ),
-                                    ActivitiesWidget(),
+                                    Ststus2Widget(),
                                   ],
                                 ),
                               ),
